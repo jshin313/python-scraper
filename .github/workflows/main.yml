@@ -1,9 +1,12 @@
 name: Scrape-Daily
 
 on:
+  push:
+    branches: 
+      - 'master'
   schedule: 
-    # Runs every day at 6am EDT (cron in UTC)
-    - cron: '0 10 * * *'
+    # Runs every day at 5 p.m. EST
+    - cron: '0 21 * * *'
 
 jobs:
   build:
