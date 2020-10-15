@@ -1,0 +1,23 @@
+name: Scrape-Daily
+
+on:
+  schedule: 
+    # Runs every day at 6am EDT (cron in UTC)
+    - cron: '0 10 * * *'
+
+jobs:
+  build:
+    name: Do stuff
+    # This job runs on Linux
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Scrape Webpage
+        run: |
+          python scrape.py
+    
